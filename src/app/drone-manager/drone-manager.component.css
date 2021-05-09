@@ -1,0 +1,143 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+.center{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.title{
+    height: 36px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 28px;
+}
+
+.bar{
+    display: flex;
+    background-color: #000;
+    color: #fff;
+    line-height: 36px;
+    font-weight: 600;
+}   
+
+.bar .nav-bar{
+    flex: 20;
+}
+
+.bar .menu-icon{
+    flex: 1;
+}
+
+.bar .menu-icon:hover{
+    cursor: pointer;
+}
+
+.bar .log-out-icon{
+    flex: 1;
+}
+
+.bar:hover{
+    cursor: pointer;
+}
+
+.banner img{
+    height: 36px;
+    width: 100%;
+    margin-bottom: -4px;
+}
+
+.nav-bar{
+    display: flex;
+    border: none;
+}
+
+.nav-bar-items{
+    border-left: solid 1px #fff;
+    border-right: solid 1px #fff;
+    text-align: center;
+    flex: 4;
+}
+
+.nav-bar-items:first-child{
+    border-left: none;
+}
+
+.nav-bar-items:last-child{
+    border-right: none;
+}
+
+.overlay{
+    position: absolute;
+    background-color: #000;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    opacity: 0.3;
+    display: none;
+    animation: fadeIn linear 0.3s;
+}
+
+
+.checkbox-persudo:checked ~ .overlay{
+    display: block;
+}
+
+.side-bar{
+    position: fixed;
+    top: 80px;
+    left: 8px;
+    bottom: 0;
+    right: 75%;
+    background-color: #fff;
+    transform: translateX(-108%);
+    transition: transform linear 0.3s;
+    display: flex;
+    flex-direction: column;
+}
+
+.side-bar:hover{
+    cursor: default;
+}
+
+.side-bar-items{
+    width: 100%;
+    color: black;
+    display: block;
+    padding-left: 24px;
+    height: 36px;
+    border: solid 1px #ccc;
+    border-top:none;
+    box-sizing: border-box;
+    font-weight: 500;
+}
+
+.side-bar-items:hover{
+    cursor: pointer;
+    background-color: #ccc;
+}
+
+.checkbox-persudo:checked ~ .side-bar{
+    transform: translateX(0);
+}
+
+@keyframes fadeIn {
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 0.3;
+    }
+}
+
+h4 {
+    padding-left: 8px;
+    border: solid 1px #ccc;
+    border-top:none;
+    box-sizing: border-box;
+    color: #000;
+}
