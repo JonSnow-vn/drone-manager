@@ -1,1 +1,44 @@
-<p>dialog-add-new-drone works!</p>
+<div class="wrapper">
+  <div class="header">
+    <label>Add New Drone</label>
+  </div>
+
+  <div class="body">
+    <div class="row">
+      <label>Name:</label>
+      <input [(ngModel)]="drone.name" type="text" name="" id="" />
+    </div>
+    <div class="row">
+      <label>Manufacturer:</label>
+      <select [(ngModel)]="drone.manufacturerId" name="cars" id="cars">
+        <option value=1>Volvo</option>
+        <option value=2>Saab</option>
+        <option value=3>Mercedes</option>
+        <option value=4>Audi</option>
+      </select>
+    </div>
+    <div class="row">
+      <label>Serial No:</label> <input [(ngModel)]="drone.serialNo" type="text" name="" id="" />
+    </div>
+    <div class="row" style="display: block">
+      <label>Max weight package delivery (kg):</label>
+      <input
+[(ngModel)]="drone.maxWeightPackageDelivery"         type="text"
+        style="margin-left: 138px; padding-top: 12px"
+        name=""
+        id=""
+      />
+    </div>
+    <div class="row">
+      <label>Max speed (m/s):</label> <input [(ngModel)]="drone.maxSpeed" type="text" name="" id="" />
+    </div>
+    <div class="row">
+      <label>Max height (m):</label> <input [(ngModel)]="drone.maxHeight" type="text" name="" id="" />
+    </div>
+  </div>
+
+  <div class="footer">
+    <button style="margin-right: 12px;" (click)="saveDrone()">Save</button>
+    <button mat-dialog-close>Cancel</button>
+  </div>
+</div>

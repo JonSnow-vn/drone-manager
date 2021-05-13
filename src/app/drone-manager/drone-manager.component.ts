@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { DialogService } from '@progress/kendo-angular-dialog';
 import { DialogAddNewDroneComponent } from '../dialog/dialog-add-new-drone/dialog-add-new-drone.component';
+import { DialogService } from '../service/dialog-service';
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 
 @Component({
   selector: 'app-drone-manager',
@@ -9,24 +10,22 @@ import { DialogAddNewDroneComponent } from '../dialog/dialog-add-new-drone/dialo
 })
 export class DroneManagerComponent implements OnInit {
 
-  constructor(private dialogService: DialogService) { }
-
+  constructor(private dialogService: DialogService, public dialog: MatDialog) { }
+  name ="daoda"
+  animal ="fdfd"
   ngOnInit() {
   }
 
   addNewDrone(){
-    const dialogRef = this.dialogService.open({
-      title: 'Please confirm',
+      const dialogRef = this.dialog.open(DialogAddNewDroneComponent, {
+        data: {name: this.name, animal: this.animal}
+      });
 
-      // Show component
-      content: DialogAddNewDroneComponent,
-
-      actions: [{ text: 'Cancel' }, { text: 'Delete', primary: true }]
-  });
-
-  const userInfo = dialogRef.content.instance;
-  userInfo.name = 'admin';
-  userInfo.age = 42;
+      dialogRef.afterClosed().subscribe(result => {
+        console.log('The dialog was closed');
+        this.animal = result;
+      });
+    
   }
 
 }
